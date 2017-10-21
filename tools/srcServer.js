@@ -1,8 +1,8 @@
 import express from "express";
 import webpack from "webpack";
-import config from "../webpack.config.dev"
-import path from 'path'
-import open from 'open'
+import config from "../webpack.config.dev";
+import path from 'path';
+import open from 'open';
 
 const port = 3000;
 const app = express();
@@ -24,7 +24,9 @@ app.get('*', function (req, res) {
 
 app.listen(port, function (error) {
   if (error) {
+    /* eslint-disable no-console */
     console.log(error);
+    /* eslint-enable no-console */
   } else {
     open(`http://localhost:${port}`);
   }

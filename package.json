@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
     "prestart": "babel-node tools/startMessage.js",
-    "start": "babel-node tools/srcServer.js",
-    "lint": "esw webpack.config.* src tools"
+    "lint": "esw webpack.config.* src tools",
+    "lint:watch": "npm run lint -- --watch",
+    "open:src": "babel-node tools/srcServer.js",
+    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "keywords": [],
   "author": "",
