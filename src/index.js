@@ -5,9 +5,15 @@ import App from "./components/App";
 import * as ReactDOM from "react-dom";
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import configureStore from "./store/configureStore";
+import {Provider} from "react-redux";
+
+const store = configureStore();
 
 ReactDOM.render((
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </Provider>
 ), document.getElementById('app'));
