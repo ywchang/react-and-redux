@@ -1,7 +1,7 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import PropTypes from 'prop-types';
-import CoursesList from "./CoursesList";
+import CoursesList from "./CourseList";
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
