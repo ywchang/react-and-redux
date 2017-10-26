@@ -32,8 +32,9 @@ class ManageCoursePage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.actions.saveCourse(this.state.course);
-    this.props.history.push("/courses");
+    this.props.actions.saveCourse(this.state.course).then(() => {
+      this.props.history.push("/courses");
+    });
   }
 
   render() {

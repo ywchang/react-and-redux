@@ -19,7 +19,7 @@ function updateCourseSuccess(course) {
 export function saveCourse(course) {
   return dispatch => {
     dispatch(beginAjaxCall());
-    CourseApi.saveCourse(course).then(function (savedCourse) {
+    return CourseApi.saveCourse(course).then(function (savedCourse) {
       if (!course.id) {
         dispatch(createCourseSuccess(savedCourse));
       } else {
