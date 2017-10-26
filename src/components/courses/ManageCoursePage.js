@@ -9,7 +9,8 @@ class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      course: Object.assign({}, this.props.course)
+      course: Object.assign({}, this.props.course),
+      saving: false
     };
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
@@ -32,7 +33,9 @@ class ManageCoursePage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
+    this.setState({saving: true});
     this.props.actions.saveCourse(this.state.course).then(() => {
+      this.setState({saving: false});
       this.props.history.push("/courses");
     });
   }
@@ -46,6 +49,7 @@ class ManageCoursePage extends React.Component {
         errors={{}}
         onChange={this.onChange}
         onSave={this.onSave}
+        saving={this.state.saving}
       />
     );
   }
