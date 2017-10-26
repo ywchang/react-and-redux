@@ -39,6 +39,9 @@ class ManageCoursePage extends React.Component {
       this.setState({saving: false});
       toastr.success("Save successfully");
       this.props.history.push("/courses");
+    }).catch(error => {
+      this.setState({saving: false});
+      toastr.error(error);
     });
   }
 
